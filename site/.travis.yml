@@ -1,0 +1,8 @@
+language: ruby
+rvm:
+  - 2.3.1
+install:
+  - bundle install
+  - bundle exec jekyll serve
+post_install:
+  - curl localhost:4000
