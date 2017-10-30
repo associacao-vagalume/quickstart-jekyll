@@ -43,3 +43,4 @@ exclude:
    - vendor/ruby/
    - docker-compose.yml
    - README.md
+   - .travis.yml
