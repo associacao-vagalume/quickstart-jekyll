@@ -23,7 +23,7 @@ Esse comando deve iniciar o servidor do jekyll.
 
 Para parar o site, execute o comando abaixo:
 
-    docker-compose -f ../docker-compose.yml down
+    docker-compose -f ../docker-compose.yml stop
 
 [docker-store]: https://store.docker.com/search?offering=community&type=edition
 [jekyll-quickstart]: https://jekyllrb.com/docs/quickstart/
