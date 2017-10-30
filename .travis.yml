@@ -1,8 +1,9 @@
+sudo: false
 language: ruby
 rvm:
   - 2.3.3
 install:
   - bundle install
-  - bundle exec jekyll serve
+  - jekyll build
 post_install:
   - curl localhost:4000
