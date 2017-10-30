@@ -27,3 +27,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "rake", "~>12"
+
+gem "html-proofer", "~> 3.7"
