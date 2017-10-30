@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
 require 'html-proofer'
-HTMLProofer.check_directory("./_site").run
+
+task :test do
+  options = { :assume_extension => true }
+  HTMLProofer.check_directory("./_site", options).run
+end
 
