@@ -3,7 +3,7 @@ language: ruby
 rvm:
   - 2.3.3
 before_install:
-  - gem install html-proofer jekyll
+  - gem install html-proofer
 install:
   - bundle install
-  - jekyll build
+  - bundle exec jekyll build
