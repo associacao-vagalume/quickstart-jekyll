@@ -1,4 +1,4 @@
-# Quickstart Jekyll
+# Quickstart Jekyll [![Build Status](https://travis-ci.org/associacao-vagalume/quickstart-jekyll.svg?branch=master)](https://travis-ci.org/associacao-vagalume/quickstart-jekyll)
 
 Vamos usar esse projeto para testar o fluxo de criação de páginas
 utilizando o Jekyll.
