@@ -46,6 +46,7 @@ GEM
       rack
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
+    rake (12.2.1)
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -77,6 +78,7 @@ DEPENDENCIES
   jekyll-admin (~> 0.7)
   jekyll-feed (~> 0.9)
   minima (~> 2.0)
+  rake (~> 12)
   tzinfo-data
 
 BUNDLED WITH
