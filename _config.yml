@@ -36,6 +36,7 @@ plugins:
 exclude:
    - Gemfile
    - Gemfile.lock
+   - Rakefile
    - node_modules
    - vendor/bundle/
    - vendor/cache/

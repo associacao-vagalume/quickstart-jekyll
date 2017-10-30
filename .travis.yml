@@ -2,8 +2,8 @@ sudo: false
 language: ruby
 rvm:
   - 2.3.3
+before_install:
+  - gem install html-proofer jekyll
 install:
   - bundle install
   - jekyll build
-post_install:
-  - curl localhost:4000
