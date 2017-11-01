@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/sh
+#deploy-ftp.sh
+set -e
+
 abort() {
     local message=$1
     echo $message
@@ -12,10 +15,12 @@ abort() {
 HOST=$FTP_SITE
 USER=$FTP_USER
 PASS=$FTP_PASS
+
 FTPURL="ftp://$USER:$PASS@$HOST"
 LCD="./_site"
 RCD="~"
 DELETE="--delete"
+
 lftp -c "set ftp:list-options -a; set cmd:fail-exit yes; set ssl:verify-certificate false ;
 open '$FTPURL';
 lcd $LCD;
@@ -24,4 +29,4 @@ mirror --reverse \
        $DELETE \
        --verbose \
        --exclude-glob .ftpaccess;
-exit"
+exit;"
