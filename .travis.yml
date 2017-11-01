@@ -17,5 +17,5 @@ install:
 - bundle install
 - bundle exec jekyll build
 after_success:
-- cd ./_site
-- find . -type f -exec curl -u $FTP_USER:$FTP_PASS --ftp-create-dirs -T {} $FTP_SITE/{} \;
+- chmod +x ./scripts/deploy-ftp.sh
+- ./scripts/deploy-ftp.sh
