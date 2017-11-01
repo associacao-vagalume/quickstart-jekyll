@@ -8,7 +8,7 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-# gem "jekyll", "3.6.2"
+gem "jekyll", "3.6.2"
 gem "rake", "~>12"
 gem "html-proofer", "~> 3.7"
 
@@ -23,7 +23,6 @@ gem "minima", "~> 2.0"
 group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.9"
    gem "jekyll-admin", "~> 0.7"
-   gem "github-pages"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
