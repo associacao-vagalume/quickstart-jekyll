@@ -19,6 +19,6 @@ install:
 deploy:
   provider: script
   script: scripts/deploy-ftp.sh
-  deploy.skip_cleanup: true
+  skip_cleanup: true
   on:
     branch: master
