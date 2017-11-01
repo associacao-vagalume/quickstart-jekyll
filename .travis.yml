@@ -16,6 +16,8 @@ rvm:
 install:
 - bundle install
 - bundle exec jekyll build
-after_success:
-- chmod +x ./scripts/deploy-ftp.sh
-- ./scripts/deploy-ftp.sh
+deploy:
+  provider: script
+  script: scripts/deploy-ftp.sh
+  on:
+    branch: master
