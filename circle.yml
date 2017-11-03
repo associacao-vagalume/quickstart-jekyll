@@ -23,4 +23,5 @@ deployment:
     branch: master
     commands:
       # - rsync -va --delete ./_site username@my-website:/var/html
-      - cd ./_site && find . -type f -exec curl -u $FTP_USER:$FTP_PASS--ftp-create-dirs -T {} $FTP_SITE/{} \;
+      # cd ./_site && find . -type f -exec curl -u $FTP_USER:$FTP_PASS--ftp-create-dirs -T {} $FTP_SITE/{} \;
+      - cd ./_site && ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" "$FTP_SITE" / .
