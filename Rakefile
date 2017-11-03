@@ -2,7 +2,7 @@
 
 require 'html-proofer'
 
-task :default => [:install, :test]
+task :default => [:test]
 
 task :install do
   bundle install
