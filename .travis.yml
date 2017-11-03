@@ -19,7 +19,7 @@ install:
 - bundle exec jekyll build
 after_success:
 # - lftp -vvv -c "set ftp:list-options -a; set cmd:fail-exit yes; set ssl:verify-certificate false; open '$FTP_USER:$FTP_PASS@$FTP_SITE'; lcd "./_site"; cd "~"; mirror --reverse --verbose --exclude-glob .ftpaccess; exit;"
-- ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" "$FTP_SITE" ~ ./_site
+- ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" "$FTP_SITE" ./_site ~
 
 # deploy:
 #   provider: script
