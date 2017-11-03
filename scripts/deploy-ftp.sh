@@ -21,7 +21,9 @@ LCD="./_site"
 RCD="~"
 DELETE="--delete"
 
-lftp -c "set ftp:list-options -a; set cmd:fail-exit yes; set ssl:verify-certificate false ;
+lftp -vvv -c "set ftp:list-options -a;
+set cmd:fail-exit yes;
+set ssl:verify-certificate false;
 open '$FTPURL';
 lcd $LCD;
 cd $RCD;
