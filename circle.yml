@@ -25,5 +25,6 @@ deployment:
     branch: master
     commands:
       # - rsync -va --delete ./_site username@my-website:/var/html
-      # cd ./_site && find . -type f -exec curl -u $FTP_USER:$FTP_PASS--ftp-create-dirs -T {} $FTP_SITE/{} \;
-      - cd ./_site && ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" "$FTP_SITE" . .
+      # - cd ./_site && find . -type f -exec curl -u $FTP_USER:$FTP_PASS--ftp-create-dirs -T {} $FTP_SITE/{} \;
+      # - cd ./_site && ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" "$FTP_SITE" . .
+      - lftp -vvv -c "set ftp:list-options -a; set cmd:fail-exit yes; set ssl:verify-certificate false; open '$FTP_USER:$FTP_PASS@$FTP_SITE'; lcd "./_site"; cd "~"; mirror --reverse --verbose --exclude-glob .ftpaccess; exit;"
