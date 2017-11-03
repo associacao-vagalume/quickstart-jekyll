@@ -7,7 +7,7 @@ machine:
 
 dependencies:
   post:
-    - rake install
+    - bundle install
 
 compile:
   post:
