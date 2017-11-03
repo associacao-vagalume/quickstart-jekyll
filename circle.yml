@@ -1,0 +1,26 @@
+machine:
+  environment:
+    NOKOGIRI_USE_SYSTEM_LIBRARIES: true # speeds up installation of html-proofer
+    FTP_SITE: ftp.silverwolf.com.br
+    FTP_USER: silverwolf01
+    FTP_PASS: vagalume
+
+dependencies:
+  post:
+    - rake install
+
+compile:
+  post:
+    - bundle exec jekyll build
+
+test:
+  post:
+    - rake test
+    # - bundle exec htmlproofer ./_site --allow-hash-href --check-favicon --check-html --disable-external
+
+deployment:
+  prod:
+    branch: master
+    commands:
+      # - rsync -va --delete ./_site username@my-website:/var/html
+      - cd ./_site && find . -type f -exec curl -u $FTP_USER:$FTP_PASS--ftp-create-dirs -T {} $FTP_SITE/{} \;

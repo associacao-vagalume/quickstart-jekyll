@@ -2,7 +2,11 @@
 
 require 'html-proofer'
 
-task :default => [:test]
+task :default => [:install, :test]
+
+task :install do
+  bundle install
+end
 
 task :test do
   options = { :assume_extension => true, :check_html => true,  }
