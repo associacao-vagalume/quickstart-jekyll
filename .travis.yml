@@ -17,12 +17,10 @@ rvm:
 install:
 - bundle install
 - bundle exec jekyll build
-script:
-- curl "$FTP_SITE" --user "$FTP_USER":"$FTP_PASSWORD"
 after_success:
 # - lftp -vvv -c "set ftp:list-options -a; set cmd:fail-exit yes; set ssl:verify-certificate false; open '$FTP_USER:$FTP_PASS@$FTP_SITE'; lcd "./_site"; cd "~"; mirror --reverse --verbose --exclude-glob .ftpaccess; exit;"
-- cd ./_site
-- ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" "$FTP_SITE" . .
+- cd ./_site && find . -type f -exec curl -u $FTP_USER:$FTP_PASS--ftp-create-dirs -T {} $FTP_SITE/{} \;
+  # - ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" "$FTP_SITE" . .
 
 # deploy:
 #   provider: script
