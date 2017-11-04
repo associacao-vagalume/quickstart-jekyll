@@ -4,7 +4,6 @@ addons:
     packages:
     - libcurl4-openssl-dev
     - lftp
-    - ncftp
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
@@ -23,3 +22,5 @@ deploy:
   skip_cleanup: true
   on:
     branch: master
+after_sucess:
+  - ./scripts/smoke-test.sh http://vagalume.silverwolf.com.br
