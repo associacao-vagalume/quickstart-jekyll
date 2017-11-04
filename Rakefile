@@ -6,7 +6,7 @@ require 'bundler'
 
 task :default => :preview
 
-task :preview => [:cleanup, :build ] do
+task :preview => [:clean, :build ] do
   build
   jekyll('serve --watch')
 end
@@ -15,9 +15,13 @@ task :build do
   jekyll('build')
 end
 
-task :test => [:cleanup, :build ] do
+task :test => [:clean, :build ] do
   options = { :assume_extension => true, :check_html => true,  }
   HTMLProofer.check_directory("./_site", options).run
+end
+
+task :clean do
+  cleanup
 end
 
 def jekyll(directives = '')
@@ -25,6 +29,6 @@ def jekyll(directives = '')
 end
 
 # remove generated site
-def :cleanup do
+def cleanup
   sh 'rm -rf _site'
 end
