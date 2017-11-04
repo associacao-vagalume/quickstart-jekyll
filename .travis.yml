@@ -11,17 +11,30 @@ cache:
 stages:
   - compile
   - test
+  - name: taggear
+    if: 
+    - branch = master
+    - type = push
   - name: deploy dev
-    if: branch = master
+    if: 
+    - branch = master
+    - type = push
   - name: deploy homolog
-    if: branch = homolog
-
+    if: 
+    - branch = homolog
+    - type = push
+    
 jobs:
   include:
     - stage: compile
-      script: bundle exec rake build
-    - stage: test
       script: bundle exec rake test
+    - stage: test
+      script:
+        - docker build -t vagalume .
+        - docker run -d -p 80:4000 --name vagalume-test vagalume
+        - ./scripts/smoke-test.sh http://localhost:80
+    - stage: taggear
+      script: skip
     - stage: deploy dev
       deploy:
         provider: script
