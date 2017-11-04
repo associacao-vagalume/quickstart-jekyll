@@ -2,7 +2,7 @@
 
 require 'html-proofer'
 require 'jekyll'
-require 'bundler/gem_tasks'
+require 'bundler'
 
 task :default => [:build, :test]
 
