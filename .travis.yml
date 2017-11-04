@@ -23,7 +23,7 @@ stages:
     if: 
     - branch = homolog
     - type = push
-    
+
 jobs:
   include:
     - stage: compile
