@@ -15,13 +15,13 @@ stages:
     if: branch = master
   - name: deploy homolog
     if: branch = homolog
-    
+
 jobs:
   include:
     - stage: compile
-      script: rake build
+      script: bundle exec rake build
     - stage: test
-      script: rake test
+      script: bundle exec rake test
     - stage: deploy dev
       deploy:
         provider: script
