@@ -2,6 +2,7 @@
 
 require 'html-proofer'
 require 'jekyll'
+require 'bundler/gem_tasks'
 
 task :default => [:install]
 
