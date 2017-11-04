@@ -29,6 +29,9 @@ jobs:
     - stage: compile
       script: bundle exec rake test
     - stage: test
+      sudo: required
+      services:
+        - docker
       script:
         - docker build -t vagalume .
         - docker run -d -p 80:4000 --name vagalume-test vagalume
