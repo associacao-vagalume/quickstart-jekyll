@@ -4,10 +4,9 @@ require 'html-proofer'
 require 'jekyll'
 require 'bundler'
 
-task :default => :preview
+task :default => :build
 
 task :preview => [:clean, :build ] do
-  build
   jekyll('serve --watch')
 end
 
