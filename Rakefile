@@ -25,7 +25,6 @@ def jekyll(directives = '')
 end
 
 # remove generated site
-def cleanup
+def :cleanup do
   sh 'rm -rf _site'
-  compass('clean')
 end
