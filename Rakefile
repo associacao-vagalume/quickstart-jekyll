@@ -8,11 +8,11 @@ task :default => :preview
 
 task :preview => [:cleanup, :build ] do
   build
-  jekyll(serve --watch)
+  jekyll('serve --watch')
 end
 
 task :build do
-  jekyll(build)
+  jekyll('build')
 end
 
 task :test => [:cleanup, :build ] do
