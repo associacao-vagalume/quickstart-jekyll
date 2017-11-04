@@ -39,12 +39,13 @@ exclude:
    - Gemfile
    - Gemfile.lock
    - Rakefile
-   - node_modules
+  #  - node_modules
    - vendor/bundle/
    - vendor/cache/
    - vendor/gems/
    - vendor/ruby/
    - docker-compose.yml
+   - Dockerfile
    - README.md
    - .travis.yml
    - scripts

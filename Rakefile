@@ -1,11 +1,16 @@
 #!/usr/bin/env ruby
 
 require 'html-proofer'
+require 'jekyll'
 
-task :default => [:test]
+task :default => [:install]
 
 task :install do
   bundle install
+end
+
+task :build do
+  bundle exec jekyll build  
 end
 
 task :test do
