@@ -1,6 +1,6 @@
 version: '3'
 services:
-  site:
+  server:
     command: ["jekyll", "serve", "-H", "0.0.0.0"]
     image: jekyll/jekyll:3.5
     volumes:
@@ -8,4 +8,8 @@ services:
     ports:
       - 4000:4000
       - 35729:35729
-      - 80:4000
+  site:
+    build: .
+    image: vagalume
+    ports:
+      - 80:80

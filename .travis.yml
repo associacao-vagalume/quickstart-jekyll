@@ -1,8 +1,4 @@
 sudo: false
-language: ruby
-rvm:
-- 2.3
-- 2.4
 cache: 
   bundler: true
   directories:
@@ -28,6 +24,9 @@ stages:
 jobs:
   include:
     - stage: compile
+      language: ruby
+      rvm:
+      - 2.4
       script: bundle exec rake test
     - stage: test
       sudo: required
@@ -35,11 +34,15 @@ jobs:
         - docker
       script:
         - docker build -t vagalume .
-        - docker run -d -p 80:4000 --name vagalume-test vagalume
+        - docker images
+        - docker run -d -p 80:80 --name vagalume-test vagalume
         - ./scripts/smoke-test.sh http://localhost:80
     - stage: taggear
       script: skip
     - stage: deploy dev
+      language: ruby
+      rvm:
+      - 2.4
       deploy:
         provider: script
         script: scripts/deploy-ftp.sh
