@@ -32,6 +32,7 @@ jobs:
       sudo: required
       services:
         - docker
+      install: true
       script:
         - docker build -t vagalume .
         - docker images
