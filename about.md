@@ -1,7 +1,7 @@
 ---
-layout: page
 title: About bacana
-permalink: /about/
+permalink: "/about/"
+layout: page
 ---
 
 Esse about é muito bacana!
