@@ -1,5 +1,5 @@
 ---
-title: About bacana
+title: Sobre
 permalink: "/about/"
 layout: page
 ---
