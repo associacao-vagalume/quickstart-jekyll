@@ -1,5 +1,5 @@
 sudo: false
-cache: 
+cache:
   bundler: true
   directories:
   - node_modules
@@ -9,15 +9,15 @@ stages:
   - compile
   - test
   - name: taggear
-    if: 
+    if:
     - branch = master
     - type = push
   - name: deploy dev
-    if: 
+    if:
     - branch = master
     - type = push
   - name: deploy homolog
-    if: 
+    if:
     - branch = homolog
     - type = push
 
