@@ -44,11 +44,11 @@ jobs:
         apt:
           packages:
           - lftp
+      before_deploy:
+        - bundle exec rake build
       deploy:
         provider: script
-        script:
-          - bundle exec rake build
-          - scripts/deploy-ftp.sh
+        script: scripts/deploy-ftp.sh
         skip_cleanup: true
         on:
           branch: master
