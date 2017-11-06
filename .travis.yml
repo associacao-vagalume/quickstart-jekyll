@@ -38,10 +38,8 @@ jobs:
         - docker
       install: true
       script:
-        - docker build -t vagalume .
-        - docker images
-        - docker run -d -p 80:80 --name vagalume-test vagalume
-        - sleep 2
+        - docker-compose up site -d
+        - sleep 5
         - ./scripts/smoke-test.sh http://localhost:80
     - stage: taggear
       script: skip
