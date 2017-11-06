@@ -16,7 +16,5 @@ smoke_url_prefix $url
 
 # Testes
 smoke_url_ok "/"
-    smoke_assert_body "Welcome to Jekyll!"
 smoke_url_ok "/about"
-    smoke_assert_body "About bacana"
 smoke_report
