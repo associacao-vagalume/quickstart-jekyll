@@ -34,6 +34,7 @@ jobs:
       services:
         - docker
       script:
+        - bundle exec rake build
         - docker-compose up -d site
         - ./scripts/smoke-test.sh http://localhost:80
     - stage: taggear
@@ -45,7 +46,9 @@ jobs:
           - lftp
       deploy:
         provider: script
-        script: scripts/deploy-ftp.sh
+        script:
+          - bundle exec rake build
+          - scripts/deploy-ftp.sh
         skip_cleanup: true
         on:
           branch: master
