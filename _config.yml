@@ -35,4 +35,5 @@ exclude:
 - Dockerfile
 - README.md
 - ".travis.yml"
+- ".circle.yml"
 - scripts

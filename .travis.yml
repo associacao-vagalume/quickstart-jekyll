@@ -44,7 +44,7 @@ jobs:
       script:
         - docker-compose up -d site
         - sleep 5
-        - tree .
+        - tree -L 2 .
         - ./scripts/smoke-test.sh http://localhost:80
     - stage: taggear
       script: skip
