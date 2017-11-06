@@ -17,6 +17,13 @@ SMOKE_TESTS_RUN=0
 SMOKE_URL_PREFIX=""
 SMOKE_HEADER_HOST=""
 
+
+if [ -z $DEBUG ]; then
+  VERBOSE_LEVEL="--silent"
+else
+  VERBOSE_LEVEL="--verbose"
+fi
+
 ## "Public API"
 
 smoke_csrf() {
@@ -174,7 +181,7 @@ _smoke_success() {
 
 ## Curl helpers
 _curl() {
-  local opt=(--cookie $SMOKE_CURL_COOKIE_JAR --cookie-jar $SMOKE_CURL_COOKIE_JAR --location --dump-header $SMOKE_CURL_HEADERS --silent)
+  local opt=(--cookie $SMOKE_CURL_COOKIE_JAR --cookie-jar $SMOKE_CURL_COOKIE_JAR --location --dump-header $SMOKE_CURL_HEADERS $VERBOSE_LEVEL)
   if [[ -n "$SMOKE_HEADER_HOST" ]]
   then
     opt+=(-H "Host: $SMOKE_HEADER_HOST")
