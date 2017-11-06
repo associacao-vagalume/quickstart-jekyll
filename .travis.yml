@@ -37,13 +37,17 @@ jobs:
         - docker build -t vagalume .
         - docker images
         - docker run -d -p 80:80 --name vagalume-test vagalume
+        - sleep 2
         - ./scripts/smoke-test.sh http://localhost:80
     - stage: taggear
       script: skip
     - stage: deploy dev
-      language: ruby
-      rvm:
-      - 2.4
+      install: true
+      addons:
+        apt:
+          packages:
+          - libcurl4-openssl-dev
+          - lftp
       deploy:
         provider: script
         script: scripts/deploy-ftp.sh
@@ -53,11 +57,6 @@ jobs:
       after_sucess:
         - ./scripts/smoke-test.sh http://vagalume.silverwolf.com.br
 
-addons:
-  apt:
-    packages:
-    - libcurl4-openssl-dev
-    - lftp
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
