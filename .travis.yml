@@ -37,9 +37,14 @@ jobs:
       services:
         - docker
       install: true
+      addons:
+        apt:
+          packages:
+          - tree
       script:
         - docker-compose up -d site
         - sleep 5
+        - tree .
         - ./scripts/smoke-test.sh http://localhost:80
     - stage: taggear
       script: skip
