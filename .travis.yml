@@ -38,7 +38,7 @@ jobs:
         - docker
       install: true
       script:
-        - docker-compose up site -d
+        - docker-compose up -d site
         - sleep 5
         - ./scripts/smoke-test.sh http://localhost:80
     - stage: taggear
