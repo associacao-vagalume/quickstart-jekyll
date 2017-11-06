@@ -20,7 +20,7 @@ stages:
 
 jobs:
   include:
-    - stage: compile
+    - stage: compile & test
       language: ruby
       rvm:
       - 2.4
@@ -28,11 +28,8 @@ jobs:
         apt:
           packages:
           - libcurl4-openssl-dev
-      script: bundle exec rake test
-    - stage: test
-      sudo: required
-      services:
-        - docker
+      after_install:
+        - bundle exec rake test
       script:
         - bundle exec rake build
         - docker-compose up -d site
