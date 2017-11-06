@@ -1,9 +1,6 @@
 sudo: false
 cache:
   bundler: true
-  directories:
-  - node_modules
-  - _site
 
 stages:
   - compile
@@ -36,20 +33,12 @@ jobs:
       sudo: required
       services:
         - docker
-      install: true
-      addons:
-        apt:
-          packages:
-          - tree
       script:
         - docker-compose up -d site
-        - sleep 5
-        - tree -L 2 .
         - ./scripts/smoke-test.sh http://localhost:80
     - stage: taggear
       script: skip
     - stage: deploy dev
-      install: true
       addons:
         apt:
           packages:
