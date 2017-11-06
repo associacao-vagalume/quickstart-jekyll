@@ -3,8 +3,7 @@ cache:
   bundler: true
 
 stages:
-  - compile
-  - test
+  - compile & test
   - name: taggear
     if:
     - branch = master
